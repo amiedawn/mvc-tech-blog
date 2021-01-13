@@ -11,7 +11,7 @@ User.init(
     // define id column
     id: {
       // use the special Sequelize DataTypes object, provide what type of data it is
-      type: DataTypes.INTEGER;
+      type: DataTypes.INTEGER,
       //"not null"
       allowNull: false,
       // define this as the primary key
@@ -20,7 +20,7 @@ User.init(
       autoIncrement: true
     },
     // define username column
-    user: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
