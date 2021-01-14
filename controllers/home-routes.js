@@ -44,4 +44,14 @@ router.get("/", (req, res) => {
     });
 });
 
+// check for a session and redirect to homepage if one exists
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
+});
+
 module.exports = router;
