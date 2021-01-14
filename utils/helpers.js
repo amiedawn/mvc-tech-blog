@@ -1,6 +1,6 @@
 module.exports = {
   // convert date
-  format_date: (date) => {
+  format_dates: (date) => {
     return `${new Date(date).getMonth() + 1}/${new Date(
       date
     ).getDate()}/${new Date(date).getFullYear()}`;

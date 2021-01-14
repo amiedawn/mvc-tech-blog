@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const routes = require("./controllers");
+const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,7 +23,8 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({});
+// pass helpers to handlebars
+const hbs = exphbs.create({ helpers });
 
 // set up Handlebars.js as app's template engine of choice
 app.engine('handlebars', hbs.engine);
