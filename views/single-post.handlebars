@@ -12,17 +12,19 @@
   </div>
 </article>
 
-<!--include form-->
+<!--include form; show buttons only if user is logged in-->
+{{#if loggedIn}}
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit">Add Comment</button>
+    <button type="button" class="upvote-btn">Upvote Post</button>
   </div>
 </form>
+{{/if}}
 
 <!--include comments-->
 <div class="comments">
@@ -38,6 +40,8 @@
   {{/each}}
 </div>
 
-<!--reference comment and upvote script files-->
+<!--reference comment and upvote script files only if user is logged in-->
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>
+{{/if}}
