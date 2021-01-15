@@ -1,8 +1,12 @@
 <!--goes into homepage.handlebars and single-post.handlebars-->
 
 <article class="post">
-  <div class="title">{{title}}</div>
-  <div class="meta">by {{user.username}} on {{format_dates created_at}}
+  <div class="title">
+    <a href="{{post_url}}" target="_blank">{{title}}</a>
+    <span>({{post_url}})</span>
+  </div>
+  <div class="meta">
+     by {{user.username}} on {{format_dates created_at}}
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
