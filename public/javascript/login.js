@@ -15,17 +15,14 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
+    // automatically redirect users to the dashboard after they login
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }
   }
 }
-
-document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
 
 //signup form
 async function signupFormHandler(event) {
@@ -49,13 +46,16 @@ async function signupFormHandler(event) {
 
     // check the response status
     if (response.ok) {
-      console.log("success");
+      document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }
   }
 }
 
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
