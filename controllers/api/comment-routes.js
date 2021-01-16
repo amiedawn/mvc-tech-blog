@@ -29,11 +29,9 @@ router.post("/", withAuth, (req, res) => {
   // check the session
   if (req.session) {
     Comment.create({
-      title: req.body.title,
       comment_text: req.body.comment_text,
-      // use the id from the session
       user_id: req.session.user_id,
-      post_id: req.post_id,
+      post_id: req.body.post_id,
     })
       .then((dbCommentData) => res.json(dbCommentData))
       .catch((err) => {
@@ -56,7 +54,7 @@ router.put("/:id", withAuth, (req, res) => {
   )
     .then((dbCommentData) => {
       if (!dbCommentData) {
-        res.status(404).json({ message: "No comment found with this id" });
+        res.status(404).json({ message: "Invalid comment ID" });
         return;
       }
       res.json(dbCommentData);
@@ -75,7 +73,7 @@ router.delete("/:id", withAuth, (req, res) => {
   })
     .then((dbCommentData) => {
       if (!dbCommentData) {
-        res.status(404).json({ message: "No comment found with this id!" });
+        res.status(404).json({ message: "Invalid comment ID!" });
         return;
       }
       res.json(dbCommentData);

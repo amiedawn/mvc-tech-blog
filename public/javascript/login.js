@@ -14,6 +14,7 @@ async function loginFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log("logged in");
 
     // automatically redirect users to the dashboard after they login
     if (response.ok) {
@@ -41,6 +42,7 @@ async function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log("signed up");
 
     // check the response status
     if (response.ok) {
