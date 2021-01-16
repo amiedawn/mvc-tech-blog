@@ -1,0 +1,10 @@
+<ol class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    <!--partial saved in views/partials/post-info.handlebars-->
+    {{> post-info post }}
+  </li>
+  {{else}}
+  <h6 class="pb-4">No posts have been submitted yet</h6>
+  {{/each}}
+</ol>

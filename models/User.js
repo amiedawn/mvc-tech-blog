@@ -34,9 +34,7 @@ User.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      // disallow duplicate emails
       unique: true,
-      // if allowNull is false, run data through validators before creating the table data
       validate: {
         isEmail: true
       }
