@@ -121,7 +121,7 @@ router.delete("/:id", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "Invalide post ID" });
+        res.status(404).json({ message: "Invalid post ID" });
         return;
       }
       res.json(dbPostData);
