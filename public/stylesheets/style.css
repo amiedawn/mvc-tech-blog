@@ -10,11 +10,13 @@ body, html {
   color: #333;
 }
 
+/* homepage post title */
 a {
   text-decoration: none;
   color: #225ca3;
   font-weight: bold;
   transition: color .1s;
+  font-size: smaller;
 }
 
 a:hover {
@@ -74,12 +76,14 @@ form label {
   flex-direction: column;
 }
 
+/* navigation menu */
 header {
   border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1%;
+  font-size: 30px;
 }
 
 header h1 {
@@ -117,29 +121,29 @@ main {
   background-color: #ff643d;
 }
 
+/* per post tagline on homepage */
 .post {
   margin-bottom: 2%;
   line-height: 150%;
+  font-size: normal;
 }
 
+/* per post text content on homepage */
 .post .title span {
   font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
+  font-size: 60%;
+  color: #615555;
+}
+
+/* number in ol on homepage and comment line */
+.post-list {
+  font-weight: bold;
+  font-size: x-large;
 }
 
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {
@@ -175,4 +179,5 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+  background-color: #90b6ce;
 }

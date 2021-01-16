@@ -4,7 +4,6 @@ const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // render dashboard if user is logged in
-//router.get("/", withAuth, (req, res) => { <=use if want dashboard to show only if logged in
 router.get("/", withAuth, (req, res) => {
   Post.findAll({
     where: {
@@ -33,7 +32,7 @@ router.get("/", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       //serialize the Sequelize data
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render("dashboard", { posts, loggedIn: true });
     })
     .catch((err) => {

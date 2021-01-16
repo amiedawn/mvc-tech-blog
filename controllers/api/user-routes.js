@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //get all users
 router.get("/", (req, res) => {
@@ -32,10 +33,6 @@ router.get("/:id", (req, res) => {
           model: Post,
           attributes: ["title"],
         },
-      },
-      {
-        model: Post,
-        attributes: ["title"],
       },
     ],
   })
@@ -115,7 +112,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
@@ -137,7 +134,7 @@ router.put("/:id", (req, res) => {
 });
 
 //router.delete("/user/:id", (req, res) => {
-router.delete("/:id", (req, res) => {  
+router.delete("/:id", withAuth, (req, res) => {  
   User.destroy({
     where: {
       id: req.params.id,

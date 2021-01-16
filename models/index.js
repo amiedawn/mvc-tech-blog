@@ -2,7 +2,6 @@
 const Post = require("./Post");
 const User = require("./User");
 const Comment = require("./Comment");
-const { post } = require("../controllers/api/post-routes");
 
 // create associations
 Post.belongsTo(User, {
